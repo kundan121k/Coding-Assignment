@@ -1,0 +1,31 @@
+import java.util.HashSet;
+
+public class PangramChecker {
+    public static boolean isPangram(String input) {
+        // Convert the input string to lowercase to make the check case-insensitive
+        input = input.toLowerCase();
+
+        // Create a set to store the unique lowercase letters in the input
+        HashSet<Character> uniqueLetters = new HashSet<>();
+
+        // Iterate through the input string and add each lowercase letter to the set
+        for (int i = 0; i < input.length(); i++) {
+            char c = input.charAt(i);
+            if (c >= 'a' && c <= 'z') {
+                uniqueLetters.add(c);
+            }
+        }
+
+        // Check if the set contains all 26 letters of the alphabet
+        return uniqueLetters.size() == 26;
+    }
+
+    public static void main(String[] args) {
+        String input = "The quick brown fox jumps over the lazy dog";
+        if (isPangram(input)) {
+            System.out.println("The input is a pangram.");
+        } else {
+            System.out.println("The input is not a pangram.");
+        }
+    }
+}
